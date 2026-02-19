@@ -56,12 +56,18 @@ const Autocomplete: React.FC<AutocompleteProps> = ({
         />
       </div>
 
-      <div className="dropdown-menu" role="menu" data-cy="suggestions-list">
+      <div
+        className="dropdown-menu"
+        role="menu"
+        data-cy="suggestions-list"
+        data-qa="suggestions-list"
+      >
         <div className="dropdown-content">
           {filteredPeople.map(person => (
             <div
               className="dropdown-item"
               data-cy="suggestion-item"
+              data-qa="suggestion-item"
               key={person.name}
               onClick={() => {
                 setQuery(person.name);
@@ -86,6 +92,7 @@ const Autocomplete: React.FC<AutocompleteProps> = ({
           "
           role="alert"
           data-cy="no-suggestions-message"
+          data-qa="no-suggestions-message"
         >
           <p className="has-text-danger">No matching suggestions</p>
         </div>
@@ -100,7 +107,7 @@ export const App: React.FC = () => {
   return (
     <div className="container">
       <main className="section is-flex is-flex-direction-column">
-        <h1 className="title" data-cy="title">
+        <h1 className="title" data-cy="title" data-qa="title">
           {selectedPerson
             ? `${selectedPerson.name} (${selectedPerson.born} - ${selectedPerson.died})`
             : 'No selected person'}
