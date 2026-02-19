@@ -45,6 +45,7 @@ const Autocomplete: React.FC<AutocompleteProps> = ({
           placeholder="Enter a part of the name"
           className="input"
           data-cy="search-input"
+          data-qa="search-input"
           value={query}
           onChange={event => {
             onSelected(null);
