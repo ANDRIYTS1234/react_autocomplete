@@ -29,7 +29,7 @@ const Autocomplete: React.FC<AutocompleteProps> = ({
 
   useEffect(() => {
     const timer = setTimeout(() => {
-      setDebouncedQuery(query);
+      setDebouncedQuery(query.trim());
     }, delay);
 
     return () => {
@@ -62,8 +62,8 @@ const Autocomplete: React.FC<AutocompleteProps> = ({
               className="dropdown-item"
               data-cy="suggestion-item"
               key={person.name}
-              onClick={event => {
-                setQuery(person.slug);
+              onClick={() => {
+                setQuery(person.name);
                 onSelected(person);
                 setIsOpened(false);
               }}
